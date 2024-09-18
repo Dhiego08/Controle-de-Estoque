@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>ESTOQUE - BackOffice</title>
+            <link rel="stylesheet" type="text/css" href="../Estoque/estoque.css">
+            <link rel="stylesheet" type="text/css" href="../Estoque/carregar_estoque.php">
+            
+            <link rel="stylesheet" type="text/css" href="../Estoque/estoque.php">
+            <link rel="stylesheet" type="text/css" href="../../estoque_geral.css">
+        </head>
+
+    <body>
+
+<!-- ESTRUTURA DA JANELA OCULTA. JANELA NOVO COLABORADOR E JANELA EDITAR COLABORADOR  -->
+        <div id="TopoJanela" class="TopoJanela"></div>
+        
+            <div>
+                <img src="../Imagens/add.svg" id="BtnAdd" class="Btn_OpenPrincipal" title="Adicionar novo Produto">
+            </div>
+
+        <div id="NovoEstoque" class="Popup OcultarPopup">
+            <div class="JanelaPopup">
+                <div class="TituloPopup">
+                    <div id="TituloPopup">Novo Estoque</div>
+                        <img src="../Imagens/Close.svg" id="BtnFecharPopup" class="BtnJanelaOper">
+                    </div>
+
+                
+                <div class="CorpoPopup">
+                    <div class="CampoForm">
+                        <label>Data de Entrada</label>
+                        <input type="text"  name="Data" id="DataEntrada">
+                    </div>
+
+                    <div class="CampoForm">
+                        <label>Código Produto</label>
+                        <input type="text"  name="CodigoProduto" id="CodigoProduto">
+                    </div>
+
+
+                    <div class="CampoForm">
+                        <label>Produto</label>
+                        <input type="text"  name="NovoProduto" id="NovoProduto">
+                    </div>
+
+                    <div class="CampoForm">
+                        <label>Localização Estoque</label>
+                        <input type="text"  name="Estoque" id="Estoque">
+                    </div>
+                    
+                    <div class="CampoForm">
+                        <label>Quantidade de Entrada</label>
+                        <input type="text" name="QtdEntrada" id="QtdEntrada">
+                    </div>
+
+                    <div class="CampoForm">
+                        <label>Quantidade de Saida</label>
+                        <input type="text"  name="QtdSaida" id="QtdSaida">
+                    </div>
+
+                    <div class="CampoForm">
+                        <label>Total Estoque</label>
+                        <input type="text"  name="TotalEstoque" id="TotalEstoque">
+                    </div>
+
+                    <div class="RodaPePopup">
+                        <button id="BtnSalvarPopup" class="BtnComandoPopup">Salvar</button>
+                        <button id="BtnCancelarPopup"  class="BtnComandoPopup">Cancelar</button> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- ESTRUTURA QUE VINCULA O ARQUIVO COLABORADOR.PHP DA TABELA DE INFOMRAÇÕES DO ESTOQUE E DA CAIXA DE INPUT DE PESQUISA  -->
+        <div class="Grid">
+            <div class="TituloGrid" style="text-align: center;">
+                <h2>ESTOQUE</h2> <br>
+                <div class="Filtragem">
+                    <div class="CampoForm CampoFiltragem" style="text-align: center;">
+                        <div class="InputPesquisa">
+                            <input type="text" id="F_Filtragem" name="F_Filtragem" class="InputFiltragem" placeholder="Digite a sua busca">
+                            <img src="../Imagens/Pesquisa.svg" class="IconePesquisa"  title="Pesquisar colaborador">
+                        </div>
+                    </div>
+                    </div>
+                
+<!-- JavaScript para carregar os dados do ESTOQUE -->
+        <div id="dadosEstoque"></div>
+            <script>
+                fetch('estoque.php')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('dadosEstoque').innerHTML = data;
+                    })
+            </script>
+            
+            <script src="../../estoque_geral.js" ></script>
+            <script src="../Estoque/estoque.js"></script>
+        </body>
+</html>
