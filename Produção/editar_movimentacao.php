@@ -27,7 +27,7 @@ $precolucro = isset($data['preco_lucro']) ? str_replace(['R$', '.', ','],['', ''
 # CONEXÃO AO BANCO DE DADOS
 $servername = "localhost";
 $username = "root";
-$password = "diego238563";
+$password = "";
 $dbname = "Controle_Estoque";
 
 # VERIFICAR A CONEXÃO AO BANCO DE DADOS.
