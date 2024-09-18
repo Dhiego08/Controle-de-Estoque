@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>MOVIMENTAÇÃO - BackOffice</title>
+            <link rel="stylesheet" type="text/css" href="../Produção/movimentacao.css">
+            <link rel="stylesheet" type="text/css" href="../../estoque_geral.css">
+            <link rel="stylesheet" type="text/css" href="../Produção/carregar_movimentacao.php">
+            <link rel="stylesheet" type="text/css" href="../Produção/movimentacao.php">
+        </head>
+
+    <body>
+
+<!-- ESTRUTURA DA JANELA OCULTA. JANELA NOVA MOVIMENTAÇÃO E JANELA EDITAR MOVIMENTAÇÃO  -->
+        <div id="TopoJanela" class="TopoJanela"></div>
+        
+                <div class="BtnContainer">
+                    <img src="../Imagens/add.svg" id="BtnAdd" class="Btn_OpenPrincipal" title="Adicionar novo Fornecedor">
+                    <h1 class="BtnLabel">Adicionar nova Movimentação</h1>
+                </div>
+                <!--
+                <div class="BtnContainer">
+                    <img src="../Imagens/AddVendas.svg" id="BtnAddVendas" class="BtnAddVendas" title="Adicionar Venda"> 
+                    <h1 class="BtnLabelVenda">Adicionar Venda</h1>
+                </div>
+                -->
+        <div id="NovaMovimentacao" class="Popup OcultarPopup">
+            <div class="JanelaPopup">
+                <div class="TituloPopup">
+                    <div id="TituloPopup">Nova Movimentação</div>
+                        <img src="../Imagens/Close.svg" id="BtnFecharPopup" class="BtnJanelaOper">
+                    </div>
+
+                    
+                    <div class="CorpoPopup">
+                        <div class="CampoForm">
+                            <label>Data de Movimentação</label>
+                            <input type="text"  name="Data" id="Data">
+                        </div>
+
+                        <div class="CampoForm">
+                            <label>Código Produto</label>
+                            <input type="text"  name="CodiProduto" id="CodiProduto">
+                        </div>
+
+
+                        <div class="CampoForm">
+                            <label>Produto</label>
+                            <input type="text"  name="Produto" id="Produto">
+                        </div>
+
+                        <div class="CampoForm">
+                            <label>Estilo Produto</label>
+                            <select  id="EstiloProduto" name="EstiloProduto">
+                                <option value=""></option>
+                                <option value="Alimento">Alimento</option> 
+                                <option value="Bebida">Bebida</option>
+                                <option value="Hortfruti">Hortfruti</option>
+                                <option value="Higiene">Higiene</option>
+                            </select>
+                        </div>
+
+                        <div class="CampoForm">
+                            <label>Custo de Compra</label>
+                            <input type="text" name="CustoCompra" id="CustoCompra">
+                        </div>
+
+                        <div class="CampoForm">
+                            <label>Preço de Compra</label>
+                            <input type="text" name="PrecoCompra" id="PrecoCompra">
+                        </div>
+                        
+                        <div class="CampoForm">
+                            <label>Preço de Venda</label>
+                            <input type="text" name="PrecoVenda" id="PrecoVenda">
+                        </div>
+
+                        
+                        
+                        <div class="CampoForm">
+                            <label>Tipo Saída</label>
+                            <select type="text"  name="TipoSaida" id="TipoSaida">
+                                <option value=""></option> 
+                                <option value="Venda">Venda</option>
+                                <option value="Descarte">Descarte</option>
+                            </select>
+                        </div>
+
+                        <div class="CampoForm">
+                            <label>Valor do lucro</label>
+                            <input type="tgext" name="ValorLucro" id="ValorLucro">
+                        </div>
+
+                        
+
+                            <div class="RodaPePopup">
+                                <button id="BtnSalvarPopup" class="BtnComandoPopup">Salvar</button>
+                                <button id="BtnCancelarPopup"  class="BtnComandoPopup">Cancelar</button>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+<!-- ESTRUTURA QUE VINCULA O ARQUIVO COLABORADOR.PHP DA TABELA DE INFOMRAÇÕES DOS COLABORADORES E DA CAIXA DE INPUT DE PESQUISA  -->
+        <div class="Grid">
+            <div class="TituloGrid" style="text-align: center;">
+                <h2>MOVIMENTAÇÃO</h2> <br>
+                <div class="Filtragem">
+                    <div class="CampoForm CampoFiltragem" style="text-align: center;">
+                        <div class="InputPesquisa">
+                            <input type="text" id="F_Filtragem" name="F_Filtragem" class="InputFiltragem" placeholder="Digite a sua busca">
+                            <img src="../Imagens/Pesquisa.svg" class="IconePesquisa"  title="Pesquisar colaborador">
+                        </div>
+                    </div>
+                    </div>
+                
+<!-- JavaScript para carregar os dados da tabela movimentação.php -->
+            <div id="dadosMovimentacao"></div>
+        </div>
+        
+        <script>
+            fetch('movimentacao.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('dadosMovimentacao').innerHTML = data;
+                })
+        </script>
+
+
+            
+            <script src="../../estoque_geral.js" type="module"></script>
+            <script src="../Produção/mvimentacao.js"></script>
+    </body>
+</html>

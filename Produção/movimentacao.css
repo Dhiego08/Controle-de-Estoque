@@ -1,0 +1,365 @@
+
+/* FORMATANDO A TABELA ONDE SÃO CARREGADAS AS INFORMAÇÕES DO BANCO DE DADOS */
+
+/* Para o corpo inteiro do documento E ESCONDE AS BARRAS DE ROLAGENS */
+body {
+   overflow: hidden !important; /* Certifique-se de que a regra prevaleça */
+}
+
+/* Definição de variável para cor principal */
+:root {
+   --azul-principal: #005280; /* Define uma variável de cor para reutilização */
+}
+
+/* Estilos para a estrutura da grade/tabela */
+.Grid {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   margin-top: 10px;
+}
+
+/* Estilos para a tabela */
+.excel-table {
+   width: 100%; /* Ajusta a largura da tabela para ocupar 100% do contêiner */
+   border-collapse: collapse;
+   margin-top: 10px;
+}
+
+/* Estilização dos cabeçalhos da tabela */
+.excel-table th {
+   background-color: #248;
+   color: #fff;
+   border: 1px solid;
+   text-align: center;
+   padding: 5px;
+   font-size: 15px;
+}
+
+/* Estilização das células da tabela */
+.excel-table td {
+   border: 1px solid;
+   text-align: center;
+   padding: 2px;
+   font-size: 15px;
+}
+
+/***************************************************************************************************************************************************/
+
+/* FORMATANDO O TOPO ONDE FICA OS ICONES */
+.TopoJanela {
+   display: flex;
+   flex-direction: column;
+   align-items: center; /* Centraliza os itens na vertical */
+   margin: 10px 0;
+   position: relative;
+}
+
+.Btn_OpenPrincipal {
+   background-color: var(--azul-principal);
+   border-radius: 50px;
+   cursor: pointer;
+   width: 35px;
+   position: absolute;
+   top: 1;
+   right: 70px; /* Ajuste o valor conforme necessário e move para a direita e esquerda*/
+   margin-top: 10px;
+}
+.BtnContainer {
+   position: relative;
+   text-align: center;
+}
+
+.BtnLabel {
+   position: absolute;
+   top: calc(100% + 55px); /* Define a distância entre o ícone e o texto */
+   right: -40px; /* Ajuste o valor conforme necessário e move para a direita e esquerda*/
+   transform: translateX(-35%);
+   font-size: 12px;
+   color: #000; /* Cor de texto que você deseja */
+}
+
+.BtnAddVendas{
+   position: relative;
+   position: absolute;
+   left: 30px; /* Ajusta a posição do ícone à esquerda */
+   top: 10%;
+   width: 70px;
+
+}
+
+.BtnLabelVenda {
+   position: absolute;
+   top: calc(100% + 50px); /* Define a distância entre o ícone e o texto */
+   left: 50px; /* Ajuste o valor conforme necessário e move para a esquerda */
+   transform: translateX(40%);
+   font-size: 12px;
+   color: #000; /* Cor de texto que você deseja */
+}
+
+/****************************************************************************************************************************************************/
+
+/* CRIANDO A ESTRUTURA DA JANELA OCULTA E, FORMATANDO OS INPUTS, BOTÕES E O RODAPÉ DA JANELA OCULTA */
+.Popup{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: rgba(0, 0, 0, 0.75);
+   position: absolute;
+   top: 0px;
+   left: 10px;
+   width: 100%;
+   height: 100vh; 
+   opacity: 1;
+   transition: all 0.30s;
+}
+
+.JanelaPopup{
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+   flex-direction: column;
+   width: 50%;
+}
+
+.TituloPopup{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   color: #fff;
+   background-color: var(--azul-principal);
+   padding: 5px;
+   border-radius: 5px 5px 0px 0px;
+   width: 100%;
+   
+}
+.CorpoPopup{
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+   flex-direction: column;
+   background-color: #fff;
+   padding: 5px;
+   width: 100%;
+
+
+}
+.RodaPePopup{
+   display: flex;
+   justify-content: space-around;
+   align-items: flex-start;
+   background-color: var(--azul-principal);
+   border-radius: 0px 0px 5px 5px;
+   padding: 5px;
+   width: 100%;
+}
+
+.BtnJanelaOper{
+   width: 30px;
+   cursor: pointer;
+}
+
+.BtnComandoPopup{
+   background-color:#fff(255, 255, 255, 0.27);
+   border: none;
+   color:#000;
+   padding: 5px;
+   border-radius: 5px;
+   text-transform: uppercase;
+   cursor: pointer;
+}
+
+.CampoForm {
+   position: relative;
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+   flex-direction: column;
+   box-sizing: border-box;
+   width: 100%;
+}
+
+.CampoForm input, .CampoForm select{
+   padding: 5px;
+   border-radius: 5px;
+   width: 100%;
+   box-sizing: border-box;
+   background-color: #fff;
+   margin-bottom: 5px;
+}
+
+/**********************************************************************************************************************************************************************************/
+
+/*AJUSTANDO E FORMATANDO A ESTRUTURA QUE VINCULA O ARQUIVO COLABORADOR.PHP DA TABELA DE INFOMRAÇÕES DAS MOVIMENTAÇÕES E, DA CAIXA DE INPUT DE PESQUISA*/
+
+.CampoFiltragem{
+   width: 300px;
+}
+
+.InputFiltragem{
+   border: 3px solid #888 !important;
+
+}
+.Filtragem{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.CampoForm div{
+   padding: 5px;
+   border-radius: 5px;
+   border: none;
+   box-sizing: border-box;
+   background-color: #fff;
+   margin-bottom: 5px;
+
+}
+
+.OcultarPopup{
+   opacity: 0 !important;
+   z-index: -1;
+   transition: all 0.3s;
+}
+
+.Telefones{
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+.InputPesquisa {
+   position: relative;
+   width: 300px;
+   display: flex;
+}
+
+
+
+.IconePesquisa {
+   position: absolute;
+   right: 5px;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 50px;
+   height: 25px;
+   cursor: pointer;
+}
+
+/***********************************************************************************************************************************************************/
+
+/* AJUSTANDO O ICONE CIFRA DENTRO DO INPUT DA JENELA OCULTA */
+.InputCifra {
+   padding: 5px;
+   border-radius: 5px;
+   width: calc(100% - 30px); /* Leva em consideração o espaço ocupado pelo ícone */
+   box-sizing: border-box;
+   background-color: #fff;
+   margin-bottom: 5px;
+   padding-left: 40px; /* Ajuste para acomodar o ícone */
+   text-indent: 15px; /* Mova o cursor para a direita ajustando o valor de text-indent */
+}
+
+
+.CampoForm .IconeCifra {
+   position: relative; /* Adiciona posição relativa ao container para que a posição absoluta do ícone seja em relação a este elemento */
+   position: absolute;
+   left: -10px; /* Ajusta a posição do ícone à esquerda */
+   top: 45%;
+   transform: translateY(-60);
+   width: 40px; /* Ajusta o tamanho do ícone conforme necessário */
+   height: 20px; /* Mantém a proporção do ícone */
+   cursor: translateY(60%); /* Adiciona cursor pointer ao ícone */
+}
+/****************************************************************************************************************************************************************/
+
+/* FORMATANDO E AJUSTANDO A PARTE DOS ICONES: EXCLUIR, EDITAR E ADICIONAR VENDA NA TABELA */
+
+.icon-container {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   top: 20px; /* Ajuste este valor conforme necessário para mover o ícone para cima */
+   top: calc(100% + 50px); /* Define a distância entre o ícone e o texto */
+}
+
+.icon-wrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 0px;
+   top: 50px; /* Ajuste este valor conforme necessário para mover o ícone para cima */
+   top: calc(50% + 0px); /* Define a distância entre o ícone e o texto */
+}
+
+.editar{
+   
+   width: 25px;
+   height: 30px;
+   cursor: pointer;
+   transform: translateX(-120%);
+   top: 15px; /* Ajuste este valor conforme necessário para mover o ícone para cima */
+   top: calc(10% + 5px); /* Define a distância entre o ícone e o texto */
+   left: 0px; /* Ajuste o valor conforme necessário e move para a direita*/
+
+}
+.excluir{
+   
+   width: 25px;
+   height: 30px;
+   cursor: pointer;
+
+}
+.addVendas {
+   
+   width: 25px;
+   height: 30px;
+   cursor: pointer;
+   transform: translateX(140%);
+   top: 15px; /* Ajuste este valor conforme necessário para mover o ícone para cima */
+   top: calc(10% + 5px); /* Define a distância entre o ícone e o texto */
+   right: 25px; /* Ajuste o valor conforme necessário e move para a direita*/
+}
+
+
+
+.icon-labelEditar {
+   font-size: 12px;
+   margin-top: -5px; /* Ajuste este valor conforme necessário para o espaço desejado */
+   margin-right: 1px; /* Adiciona espaço à direita do ícone */
+   transform: translateX(-30%);
+   top: 15px; /* Ajuste este valor conforme necessário para mover o ícone para cima */
+   top: calc(10% + 5px); /* Define a distância entre o ícone e o texto */
+   left: 25px; /* Ajuste o valor conforme necessário e move para a direita*/
+}
+
+.icon-labelExcluir{
+   font-size: 12px;
+   margin-top: -5px; /* Ajuste este valor conforme necessário para o espaço desejado */
+   margin-right: 9px; /* Adiciona espaço à direita do ícone */
+   transform: translateX(0%);
+   top: 15px; /* Ajuste este valor conforme necessário para mover o ícone para cima */
+   top: calc(10% + 5px); /* Define a distância entre o ícone e o texto */
+}
+
+.icon-labelVenda{
+   font-size: 12px;
+   margin-top: -5px; /* Ajuste este valor conforme necessário para o espaço desejado */
+   margin-right: 2px; /* Adiciona espaço à direita do ícone */
+   transform: translateX(40%);
+   top: 15px; /* Ajuste este valor conforme necessário para mover o ícone para cima */
+   top: calc(10% + 5px); /* Define a distância entre o ícone e o texto */
+   right: 25px; /* Ajuste o valor conforme necessário e move para a direita*/
+}
+
+
+
+
+
+
+
+
+
