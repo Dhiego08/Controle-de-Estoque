@@ -31,7 +31,7 @@
             <?php
             $servername = "localhost";
             $username = "root";
-            $password = "diego238563";
+            $password = "";
             $dbname = "Controle_Estoque";
 
             $conn = mysqli_connect($servername, $username, $password, $dbname);
