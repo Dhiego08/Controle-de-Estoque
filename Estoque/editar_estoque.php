@@ -15,7 +15,7 @@ $totalestoque = isset($data['total_estoque']) ? intval($data['total_estoque']) :
 // Conectar ao banco de dados (substituir pelas suas credenciais)
 $servername = "localhost";
 $username = "root";
-$password = "diego238563";
+$password = "";
 $dbname = "Controle_Estoque";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
