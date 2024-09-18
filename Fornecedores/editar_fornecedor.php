@@ -25,7 +25,7 @@ $qtdentrada = isset($data['qtd_entrada']) ? intval($data['qtd_entrada']) : '';
 // Conectar ao banco de dados (substituir pelas suas credenciais)
 $servername = "localhost";
 $username = "root";
-$password = "diego238563";
+$password = "";
 $dbname = "Controle_Estoque";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
