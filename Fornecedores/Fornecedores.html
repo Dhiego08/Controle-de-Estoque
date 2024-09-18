@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>FORNECEDORES - BackOffice</title>
+            <link rel="stylesheet" type="text/css" href="../Fornecedores/fornece.css">
+            <link rel="stylesheet" type="text/css" href="../Fornecedores/fornecedores.php">
+            <link rel="stylesheet" type="text/css" href="../Fornecedores/cadastrar_fornecedores.php">
+            <link rel="stylesheet" type="text/css" href="../Fornecedores/carregar_fornecedores.php">
+            <link rel="stylesheet" type="text/css" href="../Fornecedores/editar_fornecedor.php">
+            <link rel="stylesheet" type="text/css" href="../../estoque_geral.css">
+            
+        </head>
+
+    <body>
+
+<!-- ESTRUTURA DA JANELA OCULTA. JANELA NOVO FORNECEDOR E JANELA EDITAR FORNECEDER  -->
+        <div id="TopoJanela" class="TopoJanela"></div>
+        
+                <div class="BtnContainer">
+                    <img src="../Imagens/add.svg" id="BtnAdd" class="Btn_OpenPrincipal" title="Adicionar novo Fornecedor">
+                    <h1 class="BtnLabelFornecedor">Adicionar novo fornecedor</h1>
+                </div>
+        
+        
+
+            <div id="NovoFornecedor" class="Popup OcultarPopup">
+                <div class="JanelaPopup">
+                    <div class="TituloPopup">
+                        <div id="TituloPopup">Novo Fornecedor</div>
+                            <img src="../Imagens/Close.svg" id="BtnFecharPopup" class="BtnJanelaOper">
+                        </div>
+
+                
+                        <div class="CorpoPopup">
+                            <div class="CampoForm">
+                                <label>Data de Entrada</label>
+                                <input type="text"  name="Data" id="Data">
+                            </div>
+
+                            <div class="CampoForm">
+                                <label>Código Produto</label>
+                                <input type="text"  name="CodiProduto" id="CodiProduto">
+                            </div>
+
+
+                            <div class="CampoForm">
+                                <label>Descrição Fornecedor</label>
+                                <input type="text"  name="Fornecedor" id="Fornecedor">
+                            </div>
+
+                            <div class="CampoForm">
+                                <label>Cnpj Fornecedor</label>
+                                <input type="text"  name="Cnpj" id="Cnpj">
+                            </div>
+                            
+                            <div class="CampoForm">
+                                <label>Telefone Fornecedor</label>
+                                <input type="text" name="Telefone" id="Telefone">
+                            </div>
+
+                            <div class="CampoForm">
+                                <label>Descrição Produto</label>
+                                <input type="text"  name="Produto" id="Produto">
+                            </div>
+
+                            <div class="CampoForm">
+                                <label>Estilo Produto</label>
+                                <select  id="EstiloProduto" name="EstiloProduto">
+                                    <option value=""></option>
+                                    <option value="Alimento">Alimento</option> 
+                                    <option value="Bebida">Bebida</option>
+                                    <option value="Hortfruti">Hortfruti</option>
+                                    <option value="Higiene">Higiene</option>
+                                </select>
+                            </div>
+
+                            <div class="CampoForm">
+                                <label>Valor NF</label>
+                                <input type="text" name="IconeCifra" class="InputCifra" id="ValorNf" >
+                                <img src="../Imagens/Cifra R$.svg" class="IconeCifra">
+                            </div>
+
+
+                            <div class="CampoForm">
+                                <label>Quantidade de Entrada</label>
+                                <input type="text"  name="Qtd" id="Qtd">
+                            </div>
+
+                            
+                            <div class="RodaPePopup">
+                                <button id="BtnSalvarPopup" class="BtnComandoPopup">Salvar</button>
+                                <button id="BtnCancelarPopup"  class="BtnComandoPopup">Cancelar</button>
+                            </div>    
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- ESTRUTURA QUE VINCULA O ARQUIVO COLABORADOR.PHP DA TABELA DE INFOMRAÇÕES DOS COLABORADORES E DA CAIXA DE INPUT DE PESQUISA  -->
+        <div class="Grid">
+            <div class="TituloGrid" style="text-align: center;">
+                <h2>FORNECEDORES</h2> <br>
+                <div class="Filtragem">
+                    <div class="CampoForm CampoFiltragem" style="text-align: center;">
+                        <div class="InputPesquisa">
+                            <input type="text" id="F_Filtragem" name="F_Filtragem" class="InputFiltragem" placeholder="Digite a sua busca">
+                            <img src="../Imagens/Pesquisa.svg" class="IconePesquisa"  title="Pesquisar Fornecedor">
+                        </div>
+                    </div>
+                </div>
+                
+<!-- JavaScript para carregar os dados dos colaboradores -->
+            <div id="dadosFornecedores"></div>
+        </div>
+        
+        <script>
+            fetch('fornecedores.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('dadosFornecedores').innerHTML = data;
+                })
+        </script>
+
+            <script src="../../estoque_geral.js" type="module"></script>
+            <script src="../Fornecedores/fornecedores.js"></script>
+            
+    </body>
+</html>
+
+
+<!--<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Obtém o elemento do campo Valor NF
+        const valorNfInput = document.getElementById("ValorNf");
+
+        // Adiciona um ouvinte de evento de input para formatar o valor
+        valorNfInput.addEventListener("input", function () {
+            // Remove caracteres não numéricos
+            let valorFormatado = this.value.replace(/\D/g, "");
+
+            // Formata o valor como moeda brasileira
+            valorFormatado = parseFloat(valorFormatado / 100).toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL"
+            });
+
+            // Define o valor formatado de volta no campo
+            this.value = valorFormatado;
+        });
+    });
+</script>
