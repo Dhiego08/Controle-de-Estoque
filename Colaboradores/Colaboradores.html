@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Colaboradores - BackOffice</title>
+    
+            <link rel="stylesheet" type="text/css" href="../Colaboradores/colaboradores.css">
+            <link rel="stylesheet" type="text/css" href="../Colaboradores/carregar_colaboradores.php">
+            <link rel="stylesheet" type="text/css" href="../Colaboradores/colaboradores.php">
+            <link rel="stylesheet" type="text/css" href="../../estoque_geral.css">
+        </head>
+
+    <body>
+
+<!-- ESTRUTURA DA JANELA OCULTA. JANELA NOVO COLABORADOR E JANELA EDITAR COLABORADOR  -->
+        <div id="TopoJanela" class="TopoJanela"></div>
+        
+            <div>
+                <img src="../Imagens/add.svg" id="BtnAdd" class="Btn_OpenPrincipal" title="Adicionar novo operador">
+            </div>
+
+        <div id="NovoColaborador" class="Popup OcultarPopup">
+            <div class="JanelaPopup">
+                <div class="TituloPopup">
+                    <div id="TituloPopup">Novo Colaborador</div>
+                    <img src="../Imagens/Close.svg" id="BtnFecharPopup" class="BtnJanelaOper">
+                </div>
+
+                <div class="CorpoPopup">
+                    <div class="CampoForm">
+                        <label>Nome Colaborador</label>
+                        <input type="text"  name="F_Nome" id="F_Nome">
+                </div>
+
+                    <div class="CampoForm">
+                        <label>Tipo Colaborador</label>
+                        <select  id="F_Tipo" name="F_Tipo">
+                            <option value=""></option>
+                            <option value="Super Usuario">Super Usuário</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Colaborador">Colaborador</option>
+                        </select>
+                    </div>
+
+                    <div class="CampoForm">
+                        <label>Status Colaborador</label>
+                        <select  id="F_Statu"  name="F_Statu">
+                            <option value=""></option>
+                            <option value="Ativo">Ativo</option>
+                            <option value="Inativo">Inativo</option>
+                        </select>
+                    </div>
+                
+                    <div class="CampoForm">
+                        <label>Telefones</label>
+                        <input type="text" id="F_Fone" name="F_Fone">
+                        <div id="Telefones">
+                            <div class="Tel">
+                                <div id="NumTel" class="NumTel"></div>
+                                <img src="../Imagens/Delete.svg" class="DelTel" hidden="DelTel"  id="DelTel"> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="RodaPePopup">
+                    <button id="BtnSalvarPopup" class="BtnComandoPopup">Salvar</button>
+                    <button id="BtnCancelarPopup"  class="BtnComandoPopup">Cancelar</button> 
+                </div>
+            </div>
+        </div>
+
+<!-- ESTRUTURA QUE VINCULA O ARQUIVO COLABORADOR.PHP DA TABELA DE INFOMRAÇÕES DOS COLABORADORES E DA CAIXA DE INPUT DE PESQUISA  -->
+        <div class="Grid">
+            <div class="TituloGrid" style="text-align: center;">
+                <h2>Colaboradores</h2> <br>
+                <div class="Filtragem">
+                    <div class="CampoForm CampoFiltragem" style="text-align: center;">
+                        <div class="InputPesquisa">
+                            <input type="text" id="F_Filtragem" name="F_Filtragem" class="InputFiltragem" placeholder="Digite o colaborador">
+                            <img src="../Imagens/Pesquisa.svg" class="IconePesquisa"  title="Pesquisar colaborador">
+                        </div>
+                    </div>
+                    </div>
+                
+<!-- JavaScript para carregar os dados dos colaboradores -->
+            <div id="dadosColaboradores"></div>
+        </div>
+        
+        <script>
+            fetch('colaboradores.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('dadosColaboradores').innerHTML = data;
+                })
+        </script>
+            
+            <script src="../../estoque_geral.js" type="module"></script>
+            <script src="../Colaboradores/colaboradores.js"></script>
+        </body>
+</html>
